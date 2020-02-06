@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import LineGraph from "./components/LineGraphs";
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<LineGraph />, document.getElementsByName('body'));
+ReactDOM.render(<LineGraph />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

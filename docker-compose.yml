@@ -6,8 +6,8 @@ services:
     restart: always
     build: ./frontend
     command: npm run start
-    environment:
-      - NODE_ENV=development
+    env_file:
+      - ./frontend/.env
     volumes:
       - ./frontend:/usr/src/app
       - node:/usr/src/app/node_modules
@@ -15,6 +15,16 @@ services:
       - "9000"
     ports:
       - 3000:3000
+    networks:
+      - main_net
+
+  backend:
+    image: backend
+    restart: always
+    build: ./backend
+    command: python app.py
+    ports:
+      - 5000:5000
     networks:
       - main_net
 
