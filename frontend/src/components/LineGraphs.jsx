@@ -1,4 +1,5 @@
 import React from "react";
+import Graph from "./Graph";
 import axios from 'axios';
 
 class LineGraph extends React.Component {
@@ -49,17 +50,18 @@ class LineGraph extends React.Component {
     };
 
     handleGraph = () => {
-        const {xAxis} = this.data;
-        const {yAxis} = this.data;
+        const {xAxis} = this.state;
+        const {yAxis} = this.state;
         const xValues = this.state.data[xAxis];
         const yValues = this.state.data[yAxis];
 
-        if (xValues.length && yValues.length) {
+        if (xValues && xValues.length && yValues && yValues.length) {
             this.setState({
                 dataGraph: {
                     xLabel: xAxis,
                     yLabel: yAxis,
-
+                    xValues,
+                    yValues,
                 }
             });
         }
@@ -71,7 +73,7 @@ class LineGraph extends React.Component {
     };
 
     handleYAxis = (e) => {
-        this.setState({xAxis: e.target.value});
+        this.setState({yAxis: e.target.value});
     };
 
     render() {
@@ -112,6 +114,16 @@ class LineGraph extends React.Component {
                     <button type="submit" onClick={this.handleGraph}>
                         apply
                     </button>
+                </section>
+
+                <hr/>
+                <section className="graph">
+                    <Graph
+                        xLabel={this.state.dataGraph.xLabel}
+                        yLabel={this.state.dataGraph.yLabel}
+                        xValues={this.state.dataGraph.yLabel}
+                        yValues={this.state.dataGraph.yLabel}
+                    />
                 </section>
             </div>
         )
