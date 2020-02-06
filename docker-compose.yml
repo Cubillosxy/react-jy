@@ -1,0 +1,55 @@
+version: '3'
+services:
+
+  frontend:
+    image: frontend
+    restart: always
+    build: ./frontend
+    command: npm run start
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./frontend:/usr/src/app
+      - node:/usr/src/app/node_modules
+    expose:
+      - "9000"
+    ports:
+      - 3000:3000
+    networks:
+      - main_net
+
+  mongo:
+    image: mongo:4.0.9
+    restart: always
+    command: --wiredTigerCacheSizeGB 1
+    env_file:
+      - ./mongo/.env
+    volumes:
+      - mongo:/data/db
+    ports:
+      - "27017"
+    networks:
+      - main_net
+
+#  express:
+ #   image: express
+    # restart: always
+  #  build: ./express
+   # command: npm run dev
+    #env_file:
+     # - ./express/.env
+    #volumes:
+     # - ./express:/usr/src/app
+     # - express:/usr/src/app/node_modules
+    #expose:
+     # - "4000"
+    #networks:
+     # - main_net
+
+volumes:
+  mongo:
+  node:
+  #express:
+
+networks:
+  main_net:
