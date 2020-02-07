@@ -116,6 +116,7 @@ class Users extends React.Component {
         return(
             <div>
                 <header>
+                    <h6><a href="/">home</a></h6>
                     <h3>Users - <a href="https://jsonplaceholder.typicode.com/"> info</a></h3>
                 </header>
                 <section className="table-users">
