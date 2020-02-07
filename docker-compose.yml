@@ -4,13 +4,11 @@ services:
   frontend:
     image: frontend
     restart: always
-    build: ./frontend
-    command: npm run start
+    command: sh run_front.sh
     env_file:
       - ./frontend/.env
     volumes:
-      - ./frontend:/usr/src/app
-      - node:/usr/src/app/node_modules
+      - ./frontend:/code
     expose:
       - "9000"
     ports:
@@ -20,26 +18,15 @@ services:
 
   backend:
     image: backend
-    restart: always
     build: ./backend
     command: python app.py
     ports:
       - 5000:5000
     networks:
       - main_net
-
-  mongo:
-    image: mongo:4.0.9
-    restart: always
-    command: --wiredTigerCacheSizeGB 1
-    env_file:
-      - ./mongo/.env
     volumes:
-      - mongo:/data/db
-    ports:
-      - "27017"
-    networks:
-      - main_net
+      - ./backend:/code
+
 
 #  express:
  #   image: express
@@ -57,7 +44,6 @@ services:
      # - main_net
 
 volumes:
-  mongo:
   node:
   #express:
 

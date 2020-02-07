@@ -15,7 +15,7 @@ class ReadCsv(Resource):
         json_data = request.get_json(force=True)
         csv_data = json_data.get('csv_data')
         reader = csv.reader(csv_data.splitlines())
-        headers = reader.next()
+        headers = next(reader)
         headers = [i.strip() for i in headers] #remove spaces
         result = {i: [] for i in headers}
         lines = 0

@@ -90,7 +90,12 @@ class LineGraph extends React.Component {
         return (
             <div className="LineGraph">
                 <div>
-                    <textarea name="csv_data"  onChange={this.handleInputChange}/><br/>
+                    <header>
+                        <h3>Paste - csv text </h3>
+                    </header>
+
+                    <textarea name="csv_data" onChange={this.handleInputChange}/>
+                    <br/>
                     <button type="submit" onClick={this.handleProcess}>
                         process
                     </button>
@@ -101,28 +106,28 @@ class LineGraph extends React.Component {
 
                 <hr/>
                 <section className="graph-command">
+                    <span>X AXIS</span>
                     <select name="x-axis" id="x-axis" onChange={this.handleXAxis}>
-                        <option value="">X AXIS</option>
+                        <option value="">----</option>
                         {items}
                     </select>
                     <br/>
+                    <span>Y AXIS</span>
                     <select name="y-axis" id="y-axis" onChange={this.handleYAxis}>
-                        <option value="">Y AXIS</option>
+                        <option value="">----</option>
                         {items}
                     </select>
+                    <br/>
                     <br/>
                     <button type="submit" onClick={this.handleGraph}>
-                        apply
+                        drawn chart
                     </button>
                 </section>
 
                 <hr/>
                 <section className="graph">
                     <Graph
-                        xLabel={this.state.dataGraph.xLabel}
-                        yLabel={this.state.dataGraph.yLabel}
-                        xValues={this.state.dataGraph.yLabel}
-                        yValues={this.state.dataGraph.yLabel}
+                        dataGraph={this.state.dataGraph}
                     />
                 </section>
             </div>
