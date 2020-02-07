@@ -4,9 +4,11 @@ import './index.css';
 //import 'bootstrap/dist/css/bootstrap.css';
 //import App from './App';
 import LineGraph from "./components/LineGraphs";
+import Users from "./components/Users";
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<LineGraph />, document.getElementById('root'));
+//ReactDOM.render(<LineGraph />, document.getElementById('root'));
+ReactDOM.render(<Users />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
