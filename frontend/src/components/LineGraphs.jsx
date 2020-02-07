@@ -91,6 +91,7 @@ class LineGraph extends React.Component {
             <div className="LineGraph">
                 <div>
                     <header>
+                        <h6><a href="/">home</a></h6>
                         <h3>Paste - csv text </h3>
                     </header>
 
