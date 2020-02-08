@@ -28,16 +28,23 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                exclude: /node_modules/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ],
             },
             {
-                test: /\.(jpg|png|gif|svg)$/i,
+                test: /\.(jpg|png|gif|svg|ico)$/i,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'url-loader',
                         options: {
-                          limit: 8192,
-                        },
+                          limit: 10000,
+                          fallback: 'file-loader',
+                          name: 'images/[name].[hash].[ext]',
+                        }
                     },
                 ],
             }
