@@ -117,7 +117,7 @@ class Users extends React.Component {
             <div>
                 <header>
                     <h6><a href="/">home</a></h6>
-                    <h3>Users - <a href="https://jsonplaceholder.typicode.com/"> info</a></h3>
+                    <h3>Users - <a href="https://jsonplaceholder.typicode.com/">jsonplaceholder.typicode.com</a></h3>
                 </header>
                 <section className="table-users">
                     <table>
@@ -134,7 +134,7 @@ class Users extends React.Component {
                             {items}
                         </tbody>
                     </table>
-                    <span> pagination -- <a href="#" onClick={this.handlePrevious}> /- previous  </a> ||  <a href="#" onClick={this.handleNext}> next >> </a></span>
+                    <span> pagination  <a href="#" onClick={this.handlePrevious}> {'<<'} previous  </a>  ||  <a href="#" onClick={this.handleNext}> next >> </a></span>
                 </section>
                 <hr/>
                 <section className={ this.state.detailData.length  ? 'other': 'hide'}>
