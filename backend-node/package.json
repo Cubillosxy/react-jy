@@ -9,10 +9,7 @@
   "author": "Edwin C",
   "license": "MIT",
   "dependencies": {
-    "@hapi/hapi": "^19.1.0"
+
   },
-  "devDependencies": {
-    "nodemon": "^2.0.2",
-    "standard": "^14.3.1"
-  }
+  "devDependencies": {}
 }

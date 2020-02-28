@@ -1,31 +1,30 @@
-'use strict';
+const {inc, dec, getCount} = require("./counter");
+const collectAnswers = require('./lib/questions');
 
-const Hapi = require('@hapi/hapi');
+const questions = [
+    "What is your name? ",
+    "Where do you live? ",
+    "What are you doing to do with node js "
+];
+/*
+const answerEvents = collectAnswers(questions, answers => {
+    console.log("Thank you for your answers. ");
+    console.log(answers);
+    process.exit();
+});*/
 
-const init = async () => {
+const answerEvents = collectAnswers(questions);
 
-    const server = Hapi.server({
-        port: 3000,
-        host: 'localhost'
-    });
+answerEvents.on("answer", answer =>
+    console.log(`question answered: ${answer}`)
+);
 
-    server.route({
-        method: 'GET',
-        path: '/',
-        handler: (request, h) => {
 
-            return 'Hello World!';
-        }
-    });
-
-    await server.start();
-    console.log('Server running on %s', server.info.uri);
-};
-
-process.on('unhandledRejection', (err) => {
-
-    console.log(err);
-    process.exit(1);
+answerEvents.on("complete", answers => {
+    console.log('thanks');
+    console.log(`${answers}`);
 });
 
-init();
+answerEvents.on("complete", () => process.exit());
+
+

@@ -1,0 +1,14 @@
+{
+  "name": "color list",
+  "description": "list of colors",
+  "colorList": [
+    {
+      "color": "red",
+      "hex": "#FF0000"
+    },
+    {
+      "color": "green",
+      "hex": "#00FF00"
+    }
+  ]
+}
