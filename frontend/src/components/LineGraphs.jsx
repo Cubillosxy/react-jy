@@ -13,7 +13,7 @@ class LineGraph extends React.Component {
         yAxis: ''
     };
 
-    urlParser = process.env.REACT_APP_URL_PARSER;
+    urlParser = process.env.REACT_APP_URL_PARSER || 'http://localhost:5000';
 
 
     handleInputChange = (e) => {
